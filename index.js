@@ -7,6 +7,7 @@ const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
+const { Console } = require('console');
 
 //Define Employees
 this.employees = [];
@@ -125,36 +126,31 @@ const addEmployee = async(role) =>{
 }
 
 // define employee size
-const employeesize = () => {
+const employeeoption = (role) => {
     return inquirer
         .prompt([
             {
                 type: 'number',
-                name: 'noEngineer',
-                message: `Please enter no of Engineer!`,
-                validate: noEngineer => {
-                    if (!isNaN(noEngineer)) {
+                name: 'no',
+                message: `Please enter no of ${role}!`,
+                validate: no => {
+                    if (!isNaN(no)) {
                         return true;
                     } else {
-                        console.log(`Please enter no of Engineer!`);
-                        noEngineer = "";
+                        console.log(`Please enter no of ${role}!`);
                         return false;
                     }
                 }
-            },
-            {
-                type: 'number',
-                name: 'noIntern',
-                message: `Please enter no of Intern!`,
-                validate: noIntern => {
-                    if (!isNaN(noIntern)) {
-                        return true;
-                    } else {
-                        console.log(`Please enter no of Intern!`);
-                        return false;
-                    }
+            }
+        ])
+        .then(async data => {
+                //add engineer by loop
+                //add intern by loop
+                for (let i = 0; i < data.no; i++) {
+                    console.log(`Please enter ${role} ${i + 1}`)
+                    await addEmployee(role);
                 }
-            }])
+            })
 }
 
 // generate employee card html
@@ -248,24 +244,13 @@ const generatindexHTML=(employeecardHTML) =>{
             });
         });
 
-    }
+}
+    
 
 //start collect employee info by asking employee size
-employeesize()
-    .then(async data => {
-        //only 1 Manager
-       await addEmployee("Manager");
-        //add engineer by loop
-        for (let i = 0; i < data.noEngineer; i++) {
-            console.log(`Please enter engineer ${i+1}`)
-            await addEmployee("Engineer")
-        }
-         //add intern by loop
-        for (let i = 0; i < data.noIntern; i++) {
-            console.log(`Please enter intern ${i+1}`)
-            await addEmployee("Intern");
-        }
-    })
+addEmployee("Manager")
+    .then(async data => await employeeoption("Engineer"))
+    .then(async data => await employeeoption("Intern"))
     .then(
         async () =>
         {

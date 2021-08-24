@@ -2,6 +2,8 @@
 # # Team-Profile-Generator
 ## Description
 Team-Profile-Generator is using Node.js command-line application that takes in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person. 
+<img src="/src/demo.jpg"/>
+
 ## Table of Contents
 1. [Installation](#installation)
 
@@ -26,12 +28,13 @@ To run this program required inquirer, jest and util.
    2. Run 'node index.js'
    3. Answer all questions
    4. index.html will be generated in output folder
+   <img src="/src/output.gif"/>
 ## Credits
 Victor Lam
 ## License
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://shields.io)
 ## Features
-it auto generate html based on employee size by define no. of engineer and no of intern. The team profile page will auto generate and resize the flex grid box
+It auto generate html based on employee size by define no. of engineer and no of intern. The team profile page will auto generate and resize the flex grid box
 ## Contribute
 Victor Lam
 ## Test
