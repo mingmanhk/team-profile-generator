@@ -40,6 +40,8 @@ It auto generate html based on employee size by define no. of engineer and no of
 Victor Lam
 ## Test
 Run 'npm run test'
+<img src="/src/test.gif"/>
+
 ## Questions
 Questions about this repository? Please contact me at [mingmanhk@gmail.com](mailto:mingmanhk@gmail.com).
 View more of my work in GitHub at [mingmanhk](https://github.com/mingmanhk)
