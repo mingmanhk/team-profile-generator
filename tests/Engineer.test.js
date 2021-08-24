@@ -1,11 +1,21 @@
-class Engineer {
-    constructor(github) {
-        this.github = github;
-    }
-    
-//getGithub()
+// using Engineer constructor 
+const Engineer = require("../lib/Engineer");
 
-//getRole()—overridden to return 'Engineer'
-}
+// Test Engineer contructor
+test("Can return github user name via contructor", () => {
+    const engineer = new Engineer("Victor", 1, "mingmanhk@gmail.com", "Engineer", "mingmanhk");
+    let str = "mingmanhk";
+    expect(engineer.github).toEqual(str);
+});
 
-module.exports =Engineer;
+// Test getGithub()
+test("Can return github username", () => {
+    const engineer = new Engineer("Victor", 1, "mingmanhk@gmail.com","Engineer", "mingmanhk");
+    expect(engineer.getGithub()).toEqual(expect.stringContaining(engineer.github.toString()));
+});
+
+// Test getRole() 
+test("Can return role", () => {
+    const engineer = new Engineer("Victor", 1, "mingmanhk@gmail.com","Engineer", "mingmanhk");
+    expect(engineer.getRole()).toEqual("Engineer");
+});

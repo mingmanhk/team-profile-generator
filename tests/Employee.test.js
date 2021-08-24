@@ -1,18 +1,49 @@
-class Employee {
-  constructor(name, id, email, role) {
-    this.name = name;
-    this.id = id;
-    this.email = email;
-    this.role = role;
-  }
+// using Employee constructor 
+const Employee = require("../lib/Employee");
 
-  //getName()
+// Test Employee contructor
+describe("Can employeee object via constructor", () => {
+  it("Can instantiate Employee instance", () => {
+    const e = new Employee();
+    expect(typeof (e)).toBe("object");
+  });
+  it("Can set name", () => {
+    let str = "Victor";
+    const e = new Employee(str);
+    expect(e.name).toBe(str);
+  });
+  it("Can set id", () => {
+    let str = 1;
+    const e = new Employee("Victor", str);
+    expect(e.id).toBe(str);
+  });
+  it("Can set email", () => {
+    let str = "test@test.com";
+    const e = new Employee("Victor", 1, str);
+    expect(e.email).toBe(str);
+  })
+});
 
-  // getId()
+// Test getName()
+describe("Can return employee name", () => {
+    const employee = new Employee("Victor", 1, "mingmanhk@gmail.com","Employee");
+    expect(employee.getName()).toEqual("Victor");
+});
 
-  // getEmail()
+// Test getId()
+describe("Can return id", () => {
+    const employee = new Employee("Victor", 1, "mingmanhk@gmail.com","Employee");
+    expect(employee.getId()).toEqual(1);
+});
 
-  // getRole() —returns 'Employee'
-}
+// Test getEmail()
+describe("Can return Email", () => {
+    const employee = new Employee("Victor", 1, "mingmanhk@gmail.com","Employee");
+    expect(employee.getEmail()).toEqual("mingmanhk@gmail.com");
+});
 
-module.exports =Employee;
+// Test getRole() 
+describe("Can return role", () => {
+    const employee = new Employee("Victor", 1, "mingmanhk@gmail.com","Employee");
+    expect(employee.getRole()).toEqual("Employee");
+});
