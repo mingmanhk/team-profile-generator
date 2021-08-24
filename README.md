@@ -29,6 +29,7 @@ To run this program required inquirer, jest and util.
    3. Answer all questions
    4. index.html will be generated in output folder
    <img src="/src/output.gif"/>
+   
 ## Credits
 Victor Lam
 ## License
